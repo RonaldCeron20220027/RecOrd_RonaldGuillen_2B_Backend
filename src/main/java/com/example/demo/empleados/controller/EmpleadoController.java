@@ -52,7 +52,7 @@ public class EmpleadoController {
     public ResponseEntity<ApiResponse<EmpleadoDTO>> crearEmpleado(@Valid @RequestBody EmpleadoDTO json){
         try {
             EmpleadoDTO dto = service.nuevoEmpleado(json);
-            ApiResponse<EmpleadoDTO> repuesta = new ApiResponse<>(true,"Se cre el empleado correctamente",json);
+            ApiResponse<EmpleadoDTO> repuesta = new ApiResponse<>(true,"Se cre el empleado correctamente",dto);
             return ResponseEntity.status(HttpStatus.CREATED).body(repuesta);
         }catch (Exception e){
             log.error("Erro al crear el empleado" , e.getMessage());
